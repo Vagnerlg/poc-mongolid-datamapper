@@ -1,0 +1,28 @@
+services:
+  php:
+    build: .
+    depends_on:
+      - db
+    volumes:
+      - .:/usr/src/myapp
+    working_dir: /usr/src/myapp
+
+  db:
+    image: mongo:4.2
+    command: mongod
+    volumes:
+      - db:/data/db
+      - .:/var/www/html
+
+  mongo-express:
+    image: mongo-express
+    depends_on:
+      - db
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://db:27017/
+
+volumes:
+  db:
+    driver: local

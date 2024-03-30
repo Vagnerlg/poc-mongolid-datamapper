@@ -1,0 +1,13 @@
+{
+    "name": "vagnerlg/mongolid-poc",
+    "autoload": {
+        "psr-4": {
+            "Vagnerlg\\MongolidPoc\\": "src/"
+        }
+    },
+    "require": {
+        "leroy-merlin-br/mongolid": "dev-master",
+        "ext-mongodb": "*",
+        "symfony/console": "^6.0"
+    }
+}
